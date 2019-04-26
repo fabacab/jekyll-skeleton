@@ -1,0 +1,14 @@
+main:
+  - 
+    url: /
+    text: Home
+  -
+    url: /about/
+    text: About
+    title_text: Learn more about us!
+  -
+    url: /contact/
+    text: Contact
+  -
+    url: /blog/
+    text: Blog

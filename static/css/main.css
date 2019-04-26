@@ -1,0 +1,40 @@
+/**
+ * @group Variables.
+ */
+:root {
+    --main-color: black;
+    --accent-color: red;
+}
+
+/**
+ * @group Typography.
+ *
+ * Put @font-face declarations here.
+ */
+
+/**
+ * @group Reset.
+ */
+html,
+body,
+ul,
+ol,
+figure {
+    margin: 0;
+    border: none;
+    padding: 0;
+    list-style-type: none;
+}
+
+body {
+    background: #fff;
+    color: var(--main-color);
+}
+
+/**
+ * @group Mobile styles.
+ *
+ * Put small-screen styles here.
+ */
+@media screen and (max-width: 500px) {
+}

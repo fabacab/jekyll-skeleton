@@ -1,0 +1,8 @@
+<li>
+    <figure id="gallery-image-{{ image.image | slugify }}">
+        {% if image.link %}<a href="{{ image.link }}" title="{{ image.link_title }}">{% endif %}
+            <img src="{{ "/static/images/" | append: image.image | relative_url }}" alt="{{ image.alt }}" />
+        {% if image.link %}</a>{% endif %}
+        {% if image.caption %}<figcaption>{{ image.caption }}</figcaption>{% endif %}
+    </figure>
+</li>

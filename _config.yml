@@ -1,0 +1,45 @@
+#####################################################################
+# This is Jekyll's configuration file for this project.
+#
+# For more information, see the documentation:
+#
+#     https://jekyllrb.com/docs/configuration/
+#####################################################################
+
+# Site settings
+title: Example Site
+description: >-
+    Site description.
+human_language: en-US # The primary human language you write in.
+timezone: America/New_York
+
+main_logo: main-logo.png
+
+# Build settings
+markdown: kramdown
+exclude:
+    - vendor
+    - README.md
+
+# Blog settings.
+paginate: 5    # How many posts per HTML page.
+paginate_path: "/blog/page/:num/"
+date_format: "%B %e, %Y"
+time_format: "%l:%M %p"
+
+# RSS feed settings.
+rss:
+    items:            10     # How many posts to include in blog RSS/Atom feeds.
+    update_period:    weekly # Acceptable values are: `hourly`, `daily`, `weekly`, `monthly`, or `yearly`.
+    update_frequency: 1      # How many times in the feed_update_period the feed is updated.
+    ttl:              60     # Number of minutes indicating how long to cache the channel content.
+    editor_email:     editor@example.com    # Email of the person responsible for channel content.
+    webmaster_email:  webmaster@example.com # Email of the person responsible for technical issues.
+    image:            example-rss-image.png # Image for the RSS feed, if different from the main_logo.
+
+defaults:
+  -
+    scope:
+      path: "" # an empty string here means all files in the project
+    values:
+      layout: default

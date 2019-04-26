@@ -1,0 +1,16 @@
+{% if site.data.gallery %}
+{% assign images = site.data.gallery %}
+{% if include.featured %}
+{% assign images = site.data.gallery | where: "featured", true %}
+{% endif %}
+<ul id="gallery">
+{% for image in images %}
+{% if false == include.featured and image.featured %}
+{% continue %}
+{% endif %}
+{% include gallery-image.html image=image %}
+{% endfor %}
+</ul>
+{% else %}
+<p>No images yet.</p>
+{% endif %}

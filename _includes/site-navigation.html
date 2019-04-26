@@ -1,0 +1,13 @@
+<ul>
+    {% for item in site.data.nav_menus.main  %}
+    <li id="main-nav-{{ item.text | slugify }}" class="{% if item.url == page.url %}current{% endif %}">
+        <a href="{{ item.url | relative_url }}"{% if item.title_text %} title="{{ item.title_text }}"{% endif %}{% if item.a_extra %} {{ item.a_extra}}{% endif %}>
+        {%- if item.image -%}
+            <img src="{{ "/static/images/" | append: item.image | relative_url }}" alt="{{ item.text }}" />
+        {%- else -%}
+            {{- item.text -}}
+        {%- endif -%}
+        </a>
+    </li>
+    {% endfor %}
+</ul>

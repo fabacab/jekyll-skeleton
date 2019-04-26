@@ -1,0 +1,15 @@
+<footer id="MainFooter">
+    <p class="h-card vcard">
+        <img src="{{ "/static/images/"| append: site.main_logo | absolute_url }}" alt="" class="u-photo photo" />
+        <a href="{{ site.url }}" class="p-name fn p-org org u-url url">{{ site.title }}</a><br />
+        <span class="adr" itemprop="address" itemscope="itemscope" itemtype="https://schema.org/PostalAddress">
+            <span class="p-street-address street-address" itemprop="streetAddress">{{ site.data.contact_info.street_address }}</span>,
+            <span class="p-locality locality" itemprop="addressLocality">{{ site.data.contact_info.locality }}</span>,
+            <span class="p-region region" itemprop="addressRegion">{{ site.data.contact_info.region }}</span>,
+            <span class="p-postal-code postal-code" itemprop="postalCode">{{ site.data.contact_info.postal_code }}</span>
+        </span>
+        {% if site.data.contact_info.telephone %}<a href="tel:{{ site.data.contact_info.telephone | replace: "-", "" | replace: "(", "" | replace: ")", "" | replace: ".", "" }}" class="p-tel tel"><span itemprop="telephone">{{ site.data.contact_info.telephone }}</span></a>{% endif %}
+        {% if site.data.contact_info.email %}<a href="mailto:{{ site.data.contact_info.email }}" class="u-email email"><span itemprop="email">{{ site.data.contact_info.email }}</span></a>{% endif %}
+    </p>
+    <p>(<a href="https://h2vx.com/vcf/get-contact.php?uri={{ "/" | absolute_url | cgi_escape }}">Add our contact information to your address book</a>.)</p>
+</footer>

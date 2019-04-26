@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="{{ site.human_language | default: "en" }}">
+{% include head.html %}
+<body>
+    {% include masthead.html %}
+    <main id="MainContent">
+    {{ content }}
+    </main>
+    {% include foot.html %}
+<script src="{{ "/static/js/main.js" | relative_url }}"></script>
+</body>
+</html>
