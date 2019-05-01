@@ -1,0 +1,8 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:iCalendar Generator at {{ site.url }}
+NAME:{{ site.title }} - All Events
+{% for event in site.events -%}
+{%- include vevent.ics event=event -%}
+{%- endfor %}
+END:VCALENDAR

@@ -1,6 +1,6 @@
 # Your Website
 
-This folder, called the "web root" or sometimes "document root," contains the whole of your Website. Everything needed to publish your site's HTML pages, [blog posts](_posts/), [events](_data/README.md#events), [gallery](_data/README.md#gallery), [images](static/images/), and more are somewhere within this folder structure. Not all of these files are Web pages. Some are [configuration files](#site-configuration), [data files](_data/README.md#the-_data-folder), or [snippets of templates](_includes/README.md#the-_includes-folder).
+This folder, called the "web root" or sometimes "document root," contains the whole of your Website. Everything needed to publish your site's HTML pages, [blog posts](_posts/), [events](_events/README.md#the-_events-folder), [gallery](_data/README.md#gallery), [images](static/images/README.md#the-images-folder), and more are somewhere within this folder structure. Not all of these files are Web pages. Some are [configuration files](#site-configuration), [data files](_data/README.md#the-_data-folder), or [snippets of templates](_includes/README.md#the-_includes-folder).
 
 The software used to publish your Website is called [Jekyll](https://jekyllrb.com/). It is the program responsible for processing the files in this folder structure and transforming them into the HTML pages, RSS feeds, iCalendar feeds, and other machine-readable formats that your Web browser, news reader, calendaring application, and other client software downloads. Much of the [documentation provided by the Jekyll project](https://jekyllrb.com/docs/) is therefor very useful in understanding both the folder hierarchy contained herein and the contents of each file in these folders.
 
@@ -18,7 +18,7 @@ There are other folders as well, but these are the ones you will need to open an
 
 # Site configuration
 
-Settings that affect the whole of your website are written to the main configuration file, called [`_config.yml`](_config.yml), located in the document root (this folder). The configuration file itself is written in a highly structured format called [YAML](https://en.wikipedia.org/wiki/YAML). If you edit this file to update a site setting, be sure to change only the setting you intend, and not the structure of the file (i.e., don't change the indentation or remove any punctuation).
+Settings that affect the whole of your website are written to the main configuration file, called [`_config.yml`](_config.yml), located in the document root (this folder). The configuration file itself is written in a highly structured format called [YAML](https://en.wikipedia.org/wiki/YAML "Yet Another Markup Language"). If you edit this file to update a site setting, be sure to change only the setting you intend, and not the structure of the file (i.e., don't change the indentation or remove any punctuation).
 
 One exception to this rule is the human-language text contained in the file. These sections are always prepended with the octothorpe (`#`) character. The octothrope signifies the start of a comment. Such comments are intended to make remembering how to edit the file a little easier. Feel free to edit these comments as you wish.
 
@@ -92,11 +92,43 @@ See also [Jekyll's documentation about pagination](https://jekyllrb.com/docs/pag
 
 ### `date_format`
 
-The default format for dates.
+A representation of the default way to print dates, specified in [`strftime` format](http://strftime.net/). For example, to print dates as the day of the week, a comma and a space, then an abbreviated month name, followed by the number of the day of the month, another comma and space, and then the four-digit year, like "`Tuesday, Apr 30, 2019`" use the following format string:
+
+```yaml
+date_format: "%A, %b %e, %Y"
+```
 
 ### `time_format`
 
-The default format for times.
+A representation of the default way to print times, specified in [`strftime` format](http://strftime.net/). This is identical to `date_format` but formats times-of-day instead of dates.
+
+## Collections settings
+
+[Collections are a Jekyll feature](https://jekyllrb.com/docs/collections/) that takes structured data and can render a page for each item in that  data structure. For example, you can make a collection of baking recipes and then, for each recipe in the collection, you can make a page with its own Web address to show the recipe on your Web site.
+
+Each collection is described as its own object in the top-level `collections` object. The primary feature of your Web site that uses collections is [events](_events/README.md#the-_events-folder). This means that there is a `collections.events` object, and the items of this object are the individual settings for the `events` collection. These settings are collectively referred to as "collection metadata."
+
+In YAML, this is written as follows:
+
+```yaml
+collections:
+    events:
+        output: true
+```
+
+When discussing the `output` setting of the `events` collection, we refer to it as the `collections.events.output` setting. Since the `events` part of the setting is dependent on the name of the collection, this is replaced with `:collection`.
+
+All collection settings are optional. Refer to [the Jekyll documentation on Collections](https://jekyllrb.com/docs/collections/) details about the available settings.
+
+For example, to define two collections, `menu_items` and `events`, where the `events` collection has a custom permalink structure and individual pages for each item (event) in the collection, write a `collections` object as follows:
+
+```yaml
+collections:
+    menu_items:
+    events:
+        output: true
+        permalink: /:collection/:title
+```
 
 ## RSS feed settings
 
@@ -156,3 +188,33 @@ The path to a picture representing your blog content, such as your site logo or 
 The `defaults` object in your site configuration controls the default values of certain metadata that accompany your pages.
 
 > TK-TODO: Document some of these? It's not likely going to be changed.
+
+## iCalendar settings
+
+Your site has built-in support for [iCalendar, a digital calendaring and event scheduling format](https://en.wikipedia.org/wiki/ICalendar). Using iCalendar, visitors can subscribe to upcoming and recurring event notifications. These notifications will then show up right alongside their own alarms and alerts in their phones or other mobile devices. This feature is often used by performance venues to help remind visitors of an upcoming show, presentation, or class.
+
+The iCalendar settings are similar in structure to the [RSS feed settings](#rss-feed-settings) in that they are all contained within one `iCalendar` object in YAML.
+
+### iCalendar defaults
+
+The `iCalendar.defaults` object sets the default values for various event metadata.
+
+#### `iCalendar.defaults.location`
+
+The physical location for events that are missing this field. This should usually be set to the physical location of the event venue itself.
+
+For example:
+
+```yaml
+iCalendar:
+    defaults:
+        location: "123 Main Street, Pleasanthill Neighborhood, Anytown, 12345, United States"
+```
+
+#### `iCalendar.defaults.status`
+
+The planning stage for events that are missing this field. The values are the same as for [the `STATUS` field in the iCalendar specification (RFC 5545)](https://icalendar.org/iCalendar-RFC-5545/3-8-1-11-status.html). The default is `CONFIRMED`.
+
+#### `iCalendar.defaults.image`
+
+The file name of the image to use as an event image's placeholder for events that are missing this field. To be useful, there must be an image with the same filename in your site's [`static/images` folder](static/images/README.md#the-images-folder).

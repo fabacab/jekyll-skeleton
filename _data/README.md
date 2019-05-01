@@ -60,12 +60,17 @@ Optionally, menu items may also include the following fields:
 
 ## Opening hours
 
-The [`hours.yml`](hours.yml) file is where you can edit your business's opening hours. This file contains lines that look like
+The [`opening_hours.yml`](hours.yml) file is where you can edit your venue or business's opening hours (business hours). This file contains lines for each each of the week with an opening time and an ending time, like this:
 
 ```yml
-sunday: 8am - 5pm
-monday: 7am - 5pm
+Sunday:
+    open: "08:00"
+    close: "19:00"
+Monday:
+    open: "07:00"
+    close: "19:00"
 ```
 
-and so forth. Simply edit the approriate line to change what your website publishes.
+The above denotes that the business is open only on Sundays from 8 AM to 5 PM and Mondays from 7 AM to 5 PM. During other times, the business is considered closed.
 
+This maps to [the Schema.org openingHours property](https://schema.org/openingHours).
