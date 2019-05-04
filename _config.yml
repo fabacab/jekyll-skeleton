@@ -10,10 +10,20 @@
 title: Example Site
 description: >-
     Site description.
-human_language: en-US # The primary human language you write in.
 timezone: America/New_York
+type: Thing
 
-main_logo: main-logo.png
+# Jekyll SEO Tag metadata.
+# See https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
+author: exampleauthor
+lang: en_US
+logo: /static/images/main-logo.png
+facebook:
+    publisher: FacebookPageID
+social:
+    links:
+        - https://www.facebook.com/FacebookPageID
+        - https://www.instagram.com/InstagramHandle
 
 # Build settings
 markdown: kramdown
@@ -28,6 +38,13 @@ paginate: 5    # How many posts per HTML page.
 paginate_path: "/blog/page/:num/"
 date_format: "%B %e, %Y"
 time_format: "%l:%M %p"
+
+# Collections metadata.
+collections:
+    events:
+        output: true
+        permalink: /:collection/:title
+        sort_by: startDate
 
 # RSS feed settings.
 rss:
@@ -45,3 +62,6 @@ defaults:
       path: "" # an empty string here means all files in the project
     values:
       layout: default
+
+plugins:
+    - jekyll-seo-tag

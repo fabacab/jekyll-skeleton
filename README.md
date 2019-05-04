@@ -46,13 +46,17 @@ For example, for a website whose authors and events are primarily or only locate
 timezone: "America/New_York"
 ```
 
-### `main_logo`
+### `type`
 
-The filename of your website's main logo. To be useful, there must be a file of the same name in your website's [`static/images`](static/images/) folder. For example:
+The kind of thing your Web site is for. For example, a `BookStore`, `RadioStation`, or `NGO`. Valid values are any Schema.org type. Typically, you should use a subtype of [LocalBusiness](https://schema.org/LocalBusiness#subtypes) or [Organization](https://schema.org/Organization#subtypes).
 
-``` yaml
-main_logo: my-site-logo.jpg
-```
+## Jekyll SEO Tag settings
+
+All of the [Jekyll SEO Tag plugin's settings](https://github.com/jekyll/jekyll-seo-tag/tree/master/docs) are also supported. Especially notable settings are described in this section.
+
+### `logo`
+
+Path to your site's main logo image.
 
 ## Build settings
 

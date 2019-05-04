@@ -1,0 +1,8 @@
+# This is a Jekyll data file used to describe each author in a multi-
+# author website. It is used primarily by the Jekyll SEO Tag plugin.
+# For additional information, see:
+# https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/advanced-usage.md#author-information
+---
+exampleauthor:
+    picture: /static/images/picture-of-exampleauthor.png
+    twitter: exampleauthor

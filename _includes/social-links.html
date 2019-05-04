@@ -1,0 +1,8 @@
+<ul class="social-links">
+    {% for link in site.social.links %}
+    {% assign domain = link | split: "/" | slice: 2 | first | split: "." | slice: -2 | first %}
+    <li>
+        <a href="{{ link }}">{{ domain | capitalize }}</a>
+    </li>
+    {% endfor %}
+</ul>

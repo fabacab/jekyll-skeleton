@@ -1,6 +1,6 @@
 <footer id="MainFooter">
     <p class="h-card vcard">
-        <img src="{{ "/static/images/"| append: site.main_logo | absolute_url }}" alt="" class="u-photo photo" />
+        <img src="{{ site.logo | absolute_url }}" alt="" class="u-photo photo" />
         <a href="{{ site.url }}" class="p-name fn p-org org u-url url">{{ site.title }}</a><br />
         <span class="adr" itemprop="address" itemscope="itemscope" itemtype="https://schema.org/PostalAddress">
             <span class="p-street-address street-address" itemprop="streetAddress">{{ site.data.contact_info.street_address }}</span>,
