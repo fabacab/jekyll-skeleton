@@ -18,7 +18,7 @@ There are other folders as well, but these are the ones you will need to open an
 
 # Site configuration
 
-Settings that affect the whole of your website are written to the main configuration file, called [`_config.yml`](_config.yml), located in the document root (this folder). The configuration file itself is written in a highly structured format called [YAML](https://en.wikipedia.org/wiki/YAML "Yet Another Markup Language"). If you edit this file to update a site setting, be sure to change only the setting you intend, and not the structure of the file (i.e., don't change the indentation or remove any punctuation).
+Settings that affect the whole of your website are written to the main configuration file, called [`_config.yml`](_config.yml), located in the document root (this folder). The configuration file itself is written in a highly structured format called [YAML](https://en.wikipedia.org/wiki/YAML "YAML Ain't Markup Language"). If you edit this file to update a site setting, be sure to change only the setting you intend, and not the structure of the file (i.e., don't change the indentation or remove any punctuation).
 
 One exception to this rule is the human-language text contained in the file. These sections are always prepended with the octothorpe (`#`) character. The octothrope signifies the start of a comment. Such comments are intended to make remembering how to edit the file a little easier. Feel free to edit these comments as you wish.
 
@@ -57,26 +57,6 @@ All of the [Jekyll SEO Tag plugin's settings](https://github.com/jekyll/jekyll-s
 ### `logo`
 
 Path to your site's main logo image.
-
-## Build settings
-
-These settings affect the way Jekyll processes your site's source files. You probably shouldn't change any of these. :)
-
-### `markdown`
-
-This setting instructs Jekyll which Gem to use to parse and transform Markdown files. The default, `kramdown`, is the best option in most cases.
-
-### `exclude`
-
-This setting instructs Jekyll to ignore specific files or folders when processing your website. Any path listed in this setting will *not* become a published Web page.
-
-The following example will prevent the file or folder named `vendor` and the file named `README.md` from appearing as a Web page on your published site:
-
-```yaml
-exclude:
-    - vendor
-    - README.md
-```
 
 ## Blog settings
 
@@ -222,6 +202,31 @@ The planning stage for events that are missing this field. The values are the sa
 #### `iCalendar.defaults.image`
 
 The file name of the image to use as an event image's placeholder for events that are missing this field. To be useful, there must be an image with the same filename in your site's [`static/images` folder](static/images/README.md#the-images-folder).
+
+## Build settings
+
+These settings affect the way Jekyll processes your site's source files. You probably shouldn't change any of these. :)
+
+### `markdown`
+
+This setting instructs Jekyll which Gem to use to parse and transform Markdown files. The default, `kramdown`, is the best option in most cases.
+
+## Plugin settings
+
+This setting is simply a list of the plugins you'd like to install on your site. See [GitHub Help: Adding Jekyll Plugins to a GitHub Pages Site](https://help.github.com/en/articles/adding-jekyll-plugins-to-a-github-pages-site).
+
+### `exclude`
+
+This setting instructs Jekyll to ignore specific files or folders when processing your website. Any path listed in this setting will *not* become a published Web page.
+
+The following example will prevent the file or folder named `vendor` and the file named `README.md` from appearing as a Web page on your published site:
+
+```yaml
+exclude:
+    - vendor
+    - README.md
+```
+
 
 # Internationalization and localization
 

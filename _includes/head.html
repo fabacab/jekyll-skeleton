@@ -8,6 +8,16 @@
     <link rel="shortcut icon" type="image/x-icon" href="{% link favicon.ico %}" />
 
     <link rel="stylesheet" href="{% link static/css/main.css %}" />
+    <link rel="stylesheet" href="{% link static/flag-icon-css/css/flag-icon.min.css %}" />
+
+    {% assign posts = site.posts | where: "id", page.id | sort: "lang" %}
+    {% for post in posts %}
+    <link rel="alternate" hreflang="{{ post.lang | replace: "_", "-" }}" href="{{ post.url }}" />
+    {% endfor %}
+    {% assign pages = site.pages | where: "id", page.id | sort: "lang" %}
+    {% for page in pages %}
+    <link rel="alternate" hreflang="{{ page.lang | replace: "_", "-" }}" href="{{ page.url }}" />
+    {% endfor %}
 
     {% if site.posts %}<link rel="alternate" href="{% link blog/feed.xml %}" type="application/rss+xml" title="{% include gettext.liquid key="latest_posts" var=site.rss.items %}" />{% endif %}
     {% if site.events %}<link rel="alternate" href="{% link events/all.ics %}" type="text/calendar" title="{% include gettext.liquid key="subscribe_to_events" %}" />{% endif %}

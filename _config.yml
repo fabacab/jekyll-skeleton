@@ -7,18 +7,19 @@
 #####################################################################
 
 # Site settings.
-# Set a title and description in other languages using the `site_title` key in the
-# `_data/strings/` data files for the desired language.
+# Set a title and description in other languages using the `site_title`
+# and `site_description` keys in the appropriate `_data/strings/` data
+# file for the desired language.
 title: Example Site
 description: >-
     Site description.
-timezone: America/New_York
-type: Thing
+timezone: America/New_York # Use the TZ database: https://en.wikipedia.org/wiki/TZID
+type: Thing                # Use a sensible value from Schema.org.
 
 # Jekyll SEO Tag metadata.
 # See https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 author: exampleauthor
-lang: &lang >- # Default language.
+lang: &lang >- # Default language, YAML anchor is used elsewhere.
     en_US
 logo: /static/images/main-logo.png
 facebook:
@@ -27,14 +28,6 @@ social:
     links:
         - https://www.facebook.com/FacebookPageID
         - https://www.instagram.com/InstagramHandle
-
-# Build settings
-markdown: kramdown
-exclude:
-    - vendor
-    - README.md
-    - Gemfile
-    - Gemfile.lock
 
 # Blog settings.
 paginate: 5    # How many posts per HTML page.
@@ -63,7 +56,7 @@ rss:
 # See https://jekyllrb.com/docs/configuration/front-matter-defaults/
 defaults:
 
-  # Set the default layout.
+  # Set the default page variables.
   - scope:
       path: "" # An empty string here means all files in the project.
     values:
@@ -78,7 +71,7 @@ defaults:
 
   # Set the `lang` page variable for language-specific subdirectories.
   - scope:
-      path: "es"
+      path: es
     values:
       lang: es
 
@@ -88,6 +81,26 @@ iCalendar:
         location: 123 Some Place
         status: CONFIRMED
         image: event-placeholder-image.jpg
+
+# Build settings.
+markdown: kramdown
+exclude:
+    - .gitmodules
+    - Gemfile
+    - Gemfile.lock
+    - README.md
+    - vendor
+
+    # Exclude unnecessary files from the flag-icon-css library.
+    # See this repository's `.gitmodules` file.
+    - static/flag-icon-css/*.coffee
+    - static/flag-icon-css/*.html
+    - static/flag-icon-css/*.json
+    - static/flag-icon-css/*.lock
+    - static/flag-icon-css/*.md
+    - static/flag-icon-css/*.sh
+    - static/flag-icon-css/*.yaml
+    - static/flag-icon-css/assets
 
 # Load whitelisted plugins.
 # See https://help.github.com/en/articles/configuring-jekyll-plugins

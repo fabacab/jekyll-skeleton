@@ -4,6 +4,7 @@
         {% assign posts = site.posts | where: "id", page.id | sort: "lang" %}
         {% for post in posts %}
         <li>
+            <span class="flag-icon flag-icon-{{ post.lang | slice: -2, 2 | downcase }} flag-icon-squared"></span>
             <a href="{{ post.url }}" hreflang="{{ post.lang }}">{{ post.lang }}</a>
         </li>
         {% endfor %}
@@ -11,6 +12,7 @@
         {% assign pages = site.pages | where: "id", page.id | sort: "lang" %}
         {% for page in pages %}
         <li>
+            <span class="flag-icon flag-icon-{{ page.lang | slice: -2, 2 | downcase }} flag-icon-squared"></span>
             <a href="{{ page.url }}" hreflang="{{ page.lang }}">{{ page.lang }}</a>
         </li>
         {% endfor %}

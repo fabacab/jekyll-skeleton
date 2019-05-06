@@ -1,6 +1,6 @@
 <header id="Masthead">
     <h1 itemprop="name" content="{% include site-title.txt %}">
-        <a href="{{ "/" | relative_url }}">
+        <a href="{%- include homeurl.html -%}">
             <img src="{{ site.logo | relative_url }}" alt="{% include site-title.txt %}" itemprop="image" />
         </a>
     </h1>
