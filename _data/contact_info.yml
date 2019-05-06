@@ -1,8 +1,25 @@
-street_address: 123 Main Street
-extended_street_address:
-locality: Anytown
-region: CA
-postal_code: 9876
+# This file stores your site's default contact information, displayed
+# in various places throughout your templates.
+---
 
-telephone: +1-555-123-4567
-email: janedoe@example.com
+# Contact information in English for the United States region.
+en_US:
+    street_address: 123 Main Street
+    extended_street_address:
+    locality: Anytown
+    region: CA
+    postal_code: 98765
+
+    telephone: +1-555-123-4567
+    email: janedoe@example.com
+
+# Contact information for Spanish speakers.
+es:
+    street_address: 123 Calle Principal
+    extended_street_address:
+    locality: Cualquier Pueblo
+    region: CA
+    postal_code: 98765
+
+    telephone: +1-555-123-4567
+    email: janedoe@example.com

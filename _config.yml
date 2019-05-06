@@ -6,7 +6,9 @@
 #     https://jekyllrb.com/docs/configuration/
 #####################################################################
 
-# Site settings
+# Site settings.
+# Set a title and description in other languages using the `site_title` key in the
+# `_data/strings/` data files for the desired language.
 title: Example Site
 description: >-
     Site description.
@@ -16,7 +18,8 @@ type: Thing
 # Jekyll SEO Tag metadata.
 # See https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 author: exampleauthor
-lang: en_US
+lang: &lang >- # Default language.
+    en_US
 logo: /static/images/main-logo.png
 facebook:
     publisher: FacebookPageID
@@ -56,23 +59,37 @@ rss:
     webmaster_email:  webmaster@example.com # Email of the person responsible for technical issues.
     image:            example-rss-image.png # Image for the RSS feed, if different from the main_logo.
 
+# Front matter defaults.
+# See https://jekyllrb.com/docs/configuration/front-matter-defaults/
 defaults:
-  -
-    scope:
-      path: "" # an empty string here means all files in the project
+
+  # Set the default layout.
+  - scope:
+      path: "" # An empty string here means all files in the project.
     values:
-      layout: default
-  -
-    scope:
+      layout: html5
+      lang: *lang
+
+  # Set the correct layout for collection types.
+  - scope:
       type: events
     values:
       layout: event
 
+  # Set the `lang` page variable for language-specific subdirectories.
+  - scope:
+      path: "es"
+    values:
+      lang: es
+
+# iCalendar settings.
 iCalendar:
     defaults:
         location: 123 Some Place
         status: CONFIRMED
         image: event-placeholder-image.jpg
 
+# Load whitelisted plugins.
+# See https://help.github.com/en/articles/configuring-jekyll-plugins
 plugins:
     - jekyll-seo-tag

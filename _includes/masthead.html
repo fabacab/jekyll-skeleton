@@ -1,10 +1,12 @@
 <header id="Masthead">
-    <h1 itemprop="name" content="{{ site.title }}">
+    <h1 itemprop="name" content="{% include site-title.txt %}">
         <a href="{{ "/" | relative_url }}">
-            <img src="{{ site.logo | relative_url }}" alt="{{ site.title }}" itemprop="image" />
+            <img src="{{ site.logo | relative_url }}" alt="{% include site-title.txt %}" itemprop="image" />
         </a>
     </h1>
     <nav id="MainNavigation" onclick="void(0);">{% comment %} Mobile Safari requires `onclick` to activate touch events. {% endcomment %}
         {% include site-navigation.html %}
     </nav>
+
+    {% include site-language.html %}
 </header>

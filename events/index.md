@@ -1,5 +1,6 @@
 ---
 title: Events
+id: events
 ---
 
 # Upcoming events

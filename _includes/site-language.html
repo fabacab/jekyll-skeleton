@@ -1,0 +1,18 @@
+<div class="language-switcher">
+    <h2>{% include gettext.liquid key="this_page_has_translations" %}</h2>
+    <ul>
+        {% assign posts = site.posts | where: "id", page.id | sort: "lang" %}
+        {% for post in posts %}
+        <li>
+            <a href="{{ post.url }}" hreflang="{{ post.lang }}">{{ post.lang }}</a>
+        </li>
+        {% endfor %}
+
+        {% assign pages = site.pages | where: "id", page.id | sort: "lang" %}
+        {% for page in pages %}
+        <li>
+            <a href="{{ page.url }}" hreflang="{{ page.lang }}">{{ page.lang }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</div><!-- .language-switcher -->

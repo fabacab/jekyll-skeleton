@@ -5,12 +5,12 @@
 
     <title>{% include title-text.html %}</title>
 
-    <link rel="shortcut icon" type="image/x-icon" href="{{ "/favicon.ico" | relative_url }}" />
+    <link rel="shortcut icon" type="image/x-icon" href="{% link favicon.ico %}" />
 
-    <link rel="stylesheet" href="{{ "static/css/main.css" | relative_url }}" />
+    <link rel="stylesheet" href="{% link static/css/main.css %}" />
 
-    {% if site.posts %}<link rel="alternate" href="{{ "/blog/feed.xml" | relative_url }}" type="application/rss+xml" title="Latest {{ site.rss.items | default: 10 }} blog posts" />{% endif %}
-    {% if site.events %}<link rel="alternate" href="{{ "/events/all.ics" | relative_url }}" type="text/calendar" title="Subscribe to these events in your calendar." />{% endif %}
+    {% if site.posts %}<link rel="alternate" href="{% link blog/feed.xml %}" type="application/rss+xml" title="{% include gettext.liquid key="latest_posts" var=site.rss.items %}" />{% endif %}
+    {% if site.events %}<link rel="alternate" href="{% link events/all.ics %}" type="text/calendar" title="{% include gettext.liquid key="subscribe_to_events" %}" />{% endif %}
 
     {% if page.next %}<link rel="next" href="{{ page.next.url | relative_url }}" />{% endif %}
     {% if page.previous %}<link rel="prev" href="{{ page.previous.url | relative_url }}" />{% endif %}

@@ -222,3 +222,9 @@ The planning stage for events that are missing this field. The values are the sa
 #### `iCalendar.defaults.image`
 
 The file name of the image to use as an event image's placeholder for events that are missing this field. To be useful, there must be an image with the same filename in your site's [`static/images` folder](static/images/README.md#the-images-folder).
+
+# Internationalization and localization
+
+Your Web site is fully multi-lingual. You can optionally translate any text into multiple languages. This section describes how to do this.
+
+> :construction: TODO: Document the i18n features.

@@ -1,14 +1,54 @@
+# This file describes the navigation menus present in various places
+# across your Web site. Each menu has a unique identifier and can be
+# translated into multiple languages, localized regions, or both. The
+# structure of the navigation menus are:
+#
+# ```yaml
+# menu_identifier:
+#   ISO_639_language_tag:
+#     - url: /path/to/link/to
+#       text: Display text of menu item 
+#       title_text: Tooltip text of menu link.
+# ```
+#
+# Common menu identifiers are:
+#
+# * `main`
+# * `sidebar`
+#
+# Each menu should have at least one language that matches the default
+# language set in the site-wide `_config.yml` file's `lang` property.
+# For example, if have set `lang: de` in your `_config.yml` file, your
+# menus must have at least the `de` language configured here.
+---
+
+# Main menu.
 main:
-  - 
-    url: /
-    text: Home
-  -
-    url: /about/
-    text: About
-    title_text: Learn more about us!
-  -
-    url: /contact/
-    text: Contact
-  -
-    url: /blog/
-    text: Blog
+
+  # English language for the United States region.
+  en_US:
+
+    # List of links for the `en_US` language.
+    - url: /
+      text: Home
+    - url: /about/
+      text: About
+      title_text: Learn more about us!
+    - url: /contact/
+      text: Contact
+    - url: /blog/
+      text: Blog
+
+  # Spanish language.
+  es:
+
+    # List of links for the `es` language.
+    - url: /es/
+      text: Inicio
+    - url: /es/sobrenosotros/
+      text: Sobre Nosotros
+      title_text: ¡Aprenda más acerca de nosotros!
+    - url: /es/contactenos/
+      text: Contáctenos
+    - url: /es/blog/
+      text: Blog

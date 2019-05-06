@@ -16,6 +16,10 @@ This folder contains [Jekyll data files](https://jekyllrb.com/docs/datafiles/), 
 * [`opening_hours.yml`](#opening-hours) - Listing of your business's opening hours.
 * [`nav_menus.yml`](#navigation-menus) - Description of which pages to link to from the navigation menus.
 
+In addition to these files, this folder also contains the following subfolders:
+
+* [strings](strings/) - Localized translations for various human-language text in your Web site's templates. See [Internationalization and Localization](../README.md#internationalization-and-localization) for details.
+
 ## Contact Info
 
 It is easy to change the contact information displayed on your website simply by changing the content of this file. Each line in this file contains a part of your contact information. For example:
