@@ -68,5 +68,11 @@ defaults:
     values:
       layout: event
 
+iCalendar:
+    defaults:
+        location: 123 Some Place
+        status: CONFIRMED
+        image: event-placeholder-image.jpg
+
 plugins:
     - jekyll-seo-tag

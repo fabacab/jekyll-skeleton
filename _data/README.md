@@ -73,4 +73,11 @@ Monday:
 
 The above denotes that the business is open only on Sundays from 8 AM to 5 PM and Mondays from 7 AM to 5 PM. During other times, the business is considered closed.
 
+If your business has non-standard opening and closing hours, you can use the `text` field to describe it. For example:
+
+```yaml
+Monday:
+    text: "By appointment only."
+```
+
 This maps to [the Schema.org openingHours property](https://schema.org/openingHours).
