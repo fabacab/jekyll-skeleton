@@ -10,15 +10,16 @@ The rest of this document offers a basic overview of these files, what they do, 
 
 All [Jekyll projects share a similar folder structure](https://jekyllrb.com/docs/structure/). (In Jekyll's documentation, the term "folder" and "directory" are interchangable.) The most important folders for your website are:
 
+* [`_data`](_data/) - Site-specific content, such as navigation menus, are saved here.
+* [`_events`](_events/) - Calendar events are saved here.
 * [`_posts`](_posts/) - Blog posts are saved here.
-* [`_data`](_data/) - Site-specific content, such as navigation menus and calendar events, are saved here.
 * [`static/images`](static/images/) - Upload images for your blog posts, gallery, etcetera into this folder.
 
 There are other folders as well, but these are the ones you will need to open and edit most often.
 
 # Site configuration
 
-Settings that affect the whole of your website are written to the main configuration file, called [`_config.yml`](_config.yml), located in the document root (this folder). The configuration file itself is written in a highly structured format called [YAML](https://en.wikipedia.org/wiki/YAML "YAML Ain't Markup Language"). If you edit this file to update a site setting, be sure to change only the setting you intend, and not the structure of the file (i.e., don't change the indentation or remove any punctuation).
+Settings that affect the whole of your website are written to the main configuration file, called [`_config.yaml`](_config.yaml), located in the document root (this folder). The configuration file itself is written in a highly structured format called [YAML](https://en.wikipedia.org/wiki/YAML "YAML Ain't Markup Language"). If you edit this file to update a site setting, be sure to change only the setting you intend, and not the structure of the file (i.e., don't change the indentation or remove any punctuation).
 
 One exception to this rule is the human-language text contained in the file. These sections are always prepended with the octothorpe (`#`) character. The octothrope signifies the start of a comment. Such comments are intended to make remembering how to edit the file a little easier. Feel free to edit these comments as you wish.
 
@@ -32,9 +33,13 @@ Some settings affect almost every page on your website. These settings are docum
 
 The title of your website. This is shown in the Web browser's title bar, set as the default name for a bookmark, and in numerous places on your site's published web page(s).
 
+> :bulb: If you have a multi-lingual Web site, set this setting the site's title in the site's default language. To set a site title in multiple languages, see the [Internationalization and localization](#internationalization-and-localization) section to learn how to add translatable text to your Web site, and then add a string whose key is `site_title` to the language's strings data file.
+
 ### `description`
 
 Your website's description should be a one or two sentence explanation of what your site is for and what a visitor might find useful about it. The description field is sometimes shown in the detail view of search engine result pages, and when someone shares your website address on social media.
+
+> :bulb: If you have a multi-lingual Web site, set this setting the site's description in the site's default language. To set a site description in multiple languages, see the [Internationalization and localization](#internationalization-and-localization) section to learn how to add translatable text to your Web site, and then add a string whose key is `site_description` to the language's strings data file.
 
 ### `timezone`
 
@@ -53,6 +58,10 @@ The kind of thing your Web site is for. For example, a `BookStore`, `RadioStatio
 ## Jekyll SEO Tag settings
 
 All of the [Jekyll SEO Tag plugin's settings](https://github.com/jekyll/jekyll-seo-tag/tree/master/docs) are also supported. Especially notable settings are described in this section.
+
+### `lang`
+
+The default language for your Web site. Defaults to `en_US`.
 
 ### `logo`
 
@@ -169,9 +178,7 @@ The path to a picture representing your blog content, such as your site logo or 
 
 ## Page defaults
 
-The `defaults` object in your site configuration controls the default values of certain metadata that accompany your pages.
-
-> TK-TODO: Document some of these? It's not likely going to be changed.
+The `defaults` object in your site configuration controls the default values of certain metadata that accompany your pages. You won't likely have to change any of these. See the Jekyll documentation for [Front Matter Defaults](https://jekyllrb.com/docs/configuration/front-matter-defaults/) for more information.
 
 ## iCalendar settings
 
@@ -211,10 +218,6 @@ These settings affect the way Jekyll processes your site's source files. You pro
 
 This setting instructs Jekyll which Gem to use to parse and transform Markdown files. The default, `kramdown`, is the best option in most cases.
 
-## Plugin settings
-
-This setting is simply a list of the plugins you'd like to install on your site. See [GitHub Help: Adding Jekyll Plugins to a GitHub Pages Site](https://help.github.com/en/articles/adding-jekyll-plugins-to-a-github-pages-site).
-
 ### `exclude`
 
 This setting instructs Jekyll to ignore specific files or folders when processing your website. Any path listed in this setting will *not* become a published Web page.
@@ -227,9 +230,38 @@ exclude:
     - README.md
 ```
 
+## Plugin settings
+
+This setting is simply a list of the plugins you'd like to install on your site. See [GitHub Help: Adding Jekyll Plugins to a GitHub Pages Site](https://help.github.com/en/articles/adding-jekyll-plugins-to-a-github-pages-site).
 
 # Internationalization and localization
 
 Your Web site is fully multi-lingual. You can optionally translate any text into multiple languages. This section describes how to do this.
 
-> :construction: TODO: Document the i18n features.
+## Set the default language
+
+First, ensure you have [set a default language](#lang). This language will be used when no translation is available.
+
+## Adding strings
+
+A *string* is some text that you want to be available in multiple languages. Common strings are the display text for [navigation menu items](_data/README.md#navigation-menus), or captions for images in a Web site's [gallery](_data/README.md#gallery). For example, a community center might have a menu item that reads "Visit us!" in English (the [default language](#set-the-default-language) for your Web site) and would like this same menu item to read "¡Visítanos!" in Spanish. To accomplish this, you need to create at least two files, such as `_data/strings/es.yaml` and `_data/strings/en.yaml`.
+
+In the `_data/strings/en.yaml` file, add a line such as this:
+
+```yaml
+visit_us: "Visit us!"
+```
+
+In the `_data/strings/es.yaml` file, add a similar line, like this:
+
+```yaml
+visit_us: "¡Visítanos!"
+```
+
+## Displaying strings
+
+To retrieve the correctly translated text from the strings data file, use the special `gettext.liquid` [include file](_includes/README.md#the-_includes-folder). For example, to get the correct translation of the "Visit us!" text:
+
+```liquid
+{% include gettext.liquid key="visit_us" %}
+```

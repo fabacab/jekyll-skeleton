@@ -17,8 +17,8 @@
 # * `sidebar`
 #
 # Each menu should have at least one language that matches the default
-# language set in the site-wide `_config.yml` file's `lang` property.
-# For example, if have set `lang: de` in your `_config.yml` file, your
+# language set in the site-wide `_config.yaml` file's `lang` property.
+# For example, if have set `lang: de` in your `_config.yaml` file, your
 # menus must have at least the `de` language configured here.
 ---
 
