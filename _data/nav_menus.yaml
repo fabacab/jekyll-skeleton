@@ -45,8 +45,8 @@ main:
     # List of links for the `es` language.
     - url: /es/
       text: Inicio
-    - url: /es/sobrenosotros/
-      text: Sobre Nosotros
+    - url: /es/acercadenosotros/
+      text: Acerca de Nosotros
       title_text: ¡Aprenda más acerca de nosotros!
     - url: /es/contactenos/
       text: Contáctenos
