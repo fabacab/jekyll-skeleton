@@ -1,0 +1,12 @@
+name: My Bar
+type: BarOrPub
+address:
+    streetAddress: 123 Main Street
+    addressLocality: Pleasantville
+    addressRegion: NY
+    postalCode: 12345
+    addressCountry: United States
+url: https://myvenue.com/
+logo: https://myvenue.com/venue-logo.jpg
+sameAs:
+    - https://www.facebook.com/MyVenue

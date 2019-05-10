@@ -66,7 +66,7 @@ The exact time at which doors open for this event. The format is the same as for
 
 ### `location`
 
-The name of a [place](../_places/README.md#the-_places-folder), or a place's address, at which the event occurs. If the value of this field does not exactly match the `name` of a place your website already knows about, it will be treated like the text of an address. For example, the following are all valid values:
+The name of a [place](../_data/places/README.md#the-_data-places-folder), or a place's address, at which the event occurs. If the value of this field does not exactly match the `name` of a place your website already knows about, it will be treated like the text of an address. For example, the following are all valid values:
 
 ```yaml
 # A simple textual address.
@@ -78,7 +78,7 @@ location: 123 Main Street, Anytown, USA
 location: Awesome Venue
 ```
 
-See the [`places`](../_places/README.md) folder for details about places.
+See the [`places`](../_data/places/README.md) folder for details about places.
 
 ### `image`
 
