@@ -31,5 +31,5 @@ LOCATION;LANGUAGE=en;CHARSET=utf-8:{{ address | default: event.location }}
 {% if event.url %}URL:{{ event.url | absolute_url }}{% endif %}
 {% if event.categories %}CATEGORIES;LANGUAGE=en;CHARSET=utf-8:{% for category in event.categories %}{{ category }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endif %}
 STATUS:{% include iCalendar-status.ics status=event.eventStatus -%}
-{% if event.image %}IMAGE:{{ event_image | default: placeholder_image  }}{% endif %}
+{% if event.image %}IMAGE:{{ event_image | default: placeholder_image | absolute_url }}{% endif %}
 END:VEVENT
