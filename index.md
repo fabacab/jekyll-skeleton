@@ -1,6 +1,6 @@
 ---
 title: Home
-id: home
+i18n: home
 ---
 
 Home page.

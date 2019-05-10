@@ -265,3 +265,31 @@ To retrieve the correctly translated text from the strings data file, use the sp
 ```liquid
 {% include gettext.liquid key="visit_us" %}
 ```
+
+## Language switcher
+
+The language switcher lets your visitors choose which language to display the page in. To make use of the language switcher, each equivalent page must be identified with the special `i18n` custom field. For example, if you have translated your home page into both English and Spanish you might have two pages like the following example.
+
+The English home page, probably in [`/index.md`](index.md):
+
+```
+---
+title: Home Page
+i18n: home
+---
+
+This is the home page.
+```
+
+The Spanish home page, probably in [`es/index.md`](es/index.md):
+
+```
+---
+title: Página de inicio
+i18n: home
+---
+
+Esta es la página principal.
+```
+
+Since both pages have the same value for their `i18n` custom field, the language switcher will show the two pages as being equivalent.

@@ -1,6 +1,6 @@
 ---
 title: Inicio
-id: home
+i18n: home
 ---
 
 Página de inicio.

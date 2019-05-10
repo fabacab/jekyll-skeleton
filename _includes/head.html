@@ -10,11 +10,11 @@
     <link rel="stylesheet" href="{% link static/css/main.css %}" />
     <link rel="stylesheet" href="{% link static/flag-icon-css/css/flag-icon.min.css %}" />
 
-    {% assign posts = site.posts | where: "id", page.id | sort: "lang" %}
+    {% assign posts = site.posts | where: "i18n", page.i18n | sort: "lang" %}
     {% for post in posts %}
     <link rel="alternate" hreflang="{{ post.lang | replace: "_", "-" }}" href="{{ post.url }}" />
     {% endfor %}
-    {% assign pages = site.pages | where: "id", page.id | sort: "lang" %}
+    {% assign pages = site.pages | where: "i18n", page.i18n | sort: "lang" %}
     {% for page in pages %}
     <link rel="alternate" hreflang="{{ page.lang | replace: "_", "-" }}" href="{{ page.url }}" />
     {% endfor %}

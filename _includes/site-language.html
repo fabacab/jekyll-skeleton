@@ -1,7 +1,7 @@
 <div class="language-switcher">
     <h2>{% include gettext.liquid key="this_page_has_translations" %}</h2>
     <ul>
-        {% assign posts = site.posts | where: "id", page.id | sort: "lang" %}
+        {% assign posts = site.posts | where: "i18n", page.i18n | sort: "lang" %}
         {% for post in posts %}
         <li>
             <span class="flag-icon flag-icon-{{ post.lang | slice: -2, 2 | downcase }} flag-icon-squared"></span>
@@ -9,7 +9,7 @@
         </li>
         {% endfor %}
 
-        {% assign pages = site.pages | where: "id", page.id | sort: "lang" %}
+        {% assign pages = site.pages | where: "i18n", page.i18n | sort: "lang" %}
         {% for page in pages %}
         <li>
             <span class="flag-icon flag-icon-{{ page.lang | slice: -2, 2 | downcase }} flag-icon-squared"></span>

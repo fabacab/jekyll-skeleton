@@ -1,6 +1,6 @@
 ---
 title: Contáctenos
-id: contact
+i18n: contact
 ---
 
 Contáctenos.

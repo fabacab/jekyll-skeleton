@@ -1,6 +1,6 @@
 ---
 title: Sobre Nosotros
-id: about
+i18n: about
 ---
 
 Sobre nosotros.

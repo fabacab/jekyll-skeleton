@@ -1,6 +1,6 @@
 ---
 title: Contact
-id: contact
+i18n: contact
 ---
 
 Contact page.

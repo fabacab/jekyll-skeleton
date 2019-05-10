@@ -1,6 +1,6 @@
 ---
 title: Events
-id: events
+i18n: events
 ---
 
 # Upcoming events

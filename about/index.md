@@ -1,6 +1,6 @@
 ---
 title: About
-id: about
+i18n: about
 ---
 
 About page.
