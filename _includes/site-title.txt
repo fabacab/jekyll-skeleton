@@ -1,7 +1,9 @@
-{%- if page.lang == site.lang -%}
+{%- if include.lang -%}
+{%- include gettext.liquid key="site_title" lang=include.lang -%}
+{%- elsif page.lang == site.lang -%}
 {{- site.title -}}
 {%- elsif nil == page.lang -%}
 {{- site.title -}}
 {%- else -%}
-{%- include gettext.liquid key="site_title" -%}
+{%- include gettext.liquid key="site_title" lang=lang -%}
 {%- endif -%}
