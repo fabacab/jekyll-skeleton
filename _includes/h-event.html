@@ -53,7 +53,15 @@ to be set on DIV elements, not ARTICLEs.
                 <meta itemprop="doorTime" content="{{ event.doorTime | date_to_xmlschema }}" />
             </li><!-- .event-doortime -->
             {% endif %}
-            <li class="p-location location" itemprop="location" itemscope="itemscope" itemtype="https://schema.org/{{ place.type | default: "Place" }}">
+            <li class="p-location location" itemprop="location"
+                itemscope="itemscope"
+                itemtype="
+                    https://schema.org/{{ place.type | default: "Place" }}{% comment %} Main type. {% endcomment %}
+                {%- for t in place.additionalTypes %}{% assign x = t | truncate: 4, "" %}
+                {% if 'http' == x %}{{ t }}{% else %}https://schema.org/{{ t }}{% endif %}
+                {% endfor -%}
+                "
+            >
                 {% if place %}
                 {% include h-card.html entity=place isOrg=true %}
                 {% else %}

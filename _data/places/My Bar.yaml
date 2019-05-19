@@ -1,5 +1,7 @@
 name: My Bar
 type: BarOrPub
+additionalTypes:
+    - EventVenue
 address:
     streetAddress: 123 Main Street
     addressLocality: Pleasantville
