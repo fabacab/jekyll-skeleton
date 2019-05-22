@@ -2,19 +2,19 @@
 {% assign k = key | replace: " ", "_" %}
 {% if site.data.people[k] %}
     {% assign item = site.data.people[k] %}
-    {% assign itemtype = "Person" %}
+    {% assign isOrg = false %}
 {% elsif site.data.organizations[k] %}
     {% assign item = site.data.organizations[k] %}
-    {% assign itemtype = "Organization" %}
+    {% assign isOrg = true %}
 {% else %}
     {% assign item = key %}
-    {% assign itemtype = nil %}
+    {% assign isOrg = nil %}
 {% endif %}
-<{{ include.html_element }} itemprop="{{ include.property }}"{% if itemtype %} itemscope="itemscope" itemtype="https://schema.org/{{ itemtype }}"{% endif %}>
+<{{ include.html_element }} itemprop="{{ include.property }}"{% if item.type %} itemscope="itemscope" itemtype="https://schema.org/{{ item.type }}"{% endif %}>
 {%- capture html -%}
-{%- if "Organization" == itemtype -%}
+{%- if true == isOrg -%}
     {%- include h-card.html entity=item isOrg=true -%}
-{% elsif itemtype %}
+{% elsif false == isOrg %}
     {%- include h-card.html entity=item -%}
 {% else %}
     {{- item -}}
