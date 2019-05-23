@@ -5,8 +5,8 @@ i18n: events
 
 # Upcoming events
 
-[<img alt="" src="{% link static/images/icon.calendar.svg %}" class="calendar icon" /> Subscribe to our calendar.]({{ "/events/all.ics" | absolute_url | replace: "https:", "webcal:" | replace: "http:", "webcal:" }} "Subscribe to our calendar.")
-([<img alt="" src="{% link static/images/icon.download.svg %}" class="download icon" />]({% link events/all.ics %} "Export events as iCalendar file."))
+[<img alt="Calendar" src="{% link static/images/icon.calendar.svg %}" class="calendar icon" /> Subscribe to our calendar.]({{ "/events/all.ics" | absolute_url | replace: "https:", "webcal:" | replace: "http:", "webcal:" }} "Subscribe to our calendar.")
+([<img alt="Download" src="{% link static/images/icon.download.svg %}" class="download icon" />]({% link events/all.ics %} "Export events as iCalendar file."))
 
 {% if site.events %}
 {% assign events = site.events | where_exp: "event", "event.endDate > site.time" | sort: "startDate" %}
