@@ -123,59 +123,6 @@ collections:
         permalink: /:collection/:title
 ```
 
-## RSS feed settings
-
-An [RSS ("Really Simple Syndication") feed](http://www.whatisrss.com/) allows visitors to subscribe to your blog posts in news reader applications. This means they can include your site in personalized news feeds (a digital equivalent of a "morning newspaper"). The same technology also allows other websites to automatically syndicate your posts on their own websites. This is often used for automatically sharing event announcements or other news from one site to another.
-
-The RSS feed settings are all contained inside an `rss` object. So, for instance, the [`rss.items`](#rssitems) setting is written as an indented item in YAML like this:
-
-```yaml
-rss:
-    items: 5
-```
-
-### `rss.items`
-
-This setting controls how many of your most recent blog posts to publish in your syndicated news feed. This is similar to [the `paginate` setting](#paginate), but only applies to news feeds.
-
-### `rss.update_period`
-
-This setting is a request to any subscribers of your news feeds to please fetch an update in the specified period. The valid values are:
-
-* `hourly`
-* `daily`
-* `weekly`
-* `monthly`
-* `yearly`
-
-The default value is `daily`.
-
-This setting works in tandem with [the `rss.update_frequency` setting](#rssupdate_frequency), described next.
-
-### `rss.update_frequency`
-
-This setting is a request to any subscribers of your news feeds to please fetch an update a certain number of times within the aforementioned [`rss.update_period`](#rssupdate_period). For instance, if this setting is set to `2` and the `rss.update_period` setting is set to `weekly`, your site is asking subscribers to "please fetch an update two times every week."
-
-The default value is `1`.
-
-### `rss.ttl`
-
-Short for "Time To Live," this setting tells subscribers how many minutes the content in the news feed should be considered fresh for. After the `ttl` number of minutes, subscribers should feel free to re-fetch the news feed. Well-behaved subscribers will not refresh the feed before the time to live has expired.
-
-The default value is `60` minutes.
-
-### `rss.editor_email`
-
-The email address of the person responsible for editorial content on the blog. This may or may not not be the same as a blog post's author. You should ordinarily set this to the "admin name" email address in your domain name registration.
-
-### `rss.webmaster_email`
-
-The email address of the person responsible for any technical issues with the news feed. You should ordinarily set this to be the same as your website's "technical contact" email address in your domain name registration.
-
-### `rss.image`
-
-The path to a picture representing your blog content, such as your site logo or a larger version of your website's [favicon](https://simple.wikipedia.org/wiki/Favicon). This must be an [image uploaded to your website](static/images/README.md).
-
 ## Page defaults
 
 The `defaults` object in your site configuration controls the default values of certain metadata that accompany your pages. You won't likely have to change any of these. See the Jekyll documentation for [Front Matter Defaults](https://jekyllrb.com/docs/configuration/front-matter-defaults/) for more information.
@@ -184,7 +131,7 @@ The `defaults` object in your site configuration controls the default values of 
 
 Your site has built-in support for [iCalendar, a digital calendaring and event scheduling format](https://en.wikipedia.org/wiki/ICalendar). Using iCalendar, visitors can subscribe to upcoming and recurring event notifications. These notifications will then show up right alongside their own alarms and alerts in their phones or other mobile devices. This feature is often used by performance venues to help remind visitors of an upcoming show, presentation, or class.
 
-The iCalendar settings are similar in structure to the [RSS feed settings](#rss-feed-settings) in that they are all contained within one `iCalendar` object in YAML.
+The iCalendar settings are all contained inside an `iCalendar` object. See below for examples regarding structure and syntax.
 
 ### iCalendar defaults
 

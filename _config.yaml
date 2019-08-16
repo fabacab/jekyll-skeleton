@@ -42,16 +42,6 @@ collections:
         permalink: /:collection/:title
         sort_by: startDate
 
-# RSS feed settings.
-rss:
-    items:            10     # How many posts to include in blog RSS/Atom feeds.
-    update_period:    weekly # Acceptable values are: `hourly`, `daily`, `weekly`, `monthly`, or `yearly`.
-    update_frequency: 1      # How many times in the feed_update_period the feed is updated.
-    ttl:              60     # Number of minutes indicating how long to cache the channel content.
-    editor_email:     editor@example.com    # Email of the person responsible for channel content.
-    webmaster_email:  webmaster@example.com # Email of the person responsible for technical issues.
-    image:            example-rss-image.png # Image for the RSS feed, if different from the main_logo.
-
 # Front matter defaults.
 # See https://jekyllrb.com/docs/configuration/front-matter-defaults/
 defaults:
@@ -106,3 +96,4 @@ exclude:
 # See https://help.github.com/en/articles/configuring-jekyll-plugins
 plugins:
     - jekyll-seo-tag
+    - jekyll-feed

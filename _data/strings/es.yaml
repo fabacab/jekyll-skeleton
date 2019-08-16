@@ -2,7 +2,6 @@
 ---
 add_our_info_to_address_book: Agregue nuestra información de contacto a su libreta de direcciones.
 all_events: Todos Los Eventos
-latest_posts: Últimas %s publicaciones de blog.
 site_description: >-
     Descripción del lugar.
 site_title: Sitio de ejemplo
