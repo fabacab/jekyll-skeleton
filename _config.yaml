@@ -58,6 +58,10 @@ defaults:
       type: events
     values:
       layout: event
+  - scope:
+      type: posts
+    values:
+      layout: post
 
   # Set the `lang` page variable for language-specific subdirectories.
   - scope:
