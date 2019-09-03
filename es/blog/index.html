@@ -3,13 +3,18 @@ title: Blog
 i18n: blog
 ---
 
-{% assign num_posts = site.posts | size %}
-{% if 0 < num_posts  %}
-<ol class="posts-wrapper">{% for post in paginator.posts %}<li>
+{% assign num_posts = site.posts | where: "lang", page.lang | size %}
+{% if 0 < num_posts %}
+{% assign posts = site.posts | where: "lang", page.lang %}
+<ol class="posts-wrapper">{% for post in posts %}<li>
     {% include h-entry.html entry=post excerpt_only=true %}
 </li>{% endfor %}</ol>
 
 <ul class="Pagination">
+    {% comment %}
+    TODO:
+    Pagination for non-English blog listing pages is currently broken. :(
+    {% endcomment %}
     {% if paginator.previous_page %}
     <li class="PaginationPrev">
         <a href="{{ paginator.previous_page_path }}">{% include gettext.liquid key="newer_posts" %}</a>
