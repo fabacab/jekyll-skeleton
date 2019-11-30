@@ -8,7 +8,9 @@
     <link rel="shortcut icon" type="image/x-icon" href="{% link favicon.ico %}" />
 
     <link rel="stylesheet" href="{% link static/css/main.css %}" />
+    {% comment %}<!-- Uncomment this line and ensure the Git submodule is cloned for country flag CSS. -->
     <link rel="stylesheet" href="{% link static/flag-icon-css/css/flag-icon.min.css %}" />
+    {% endcomment %}
 
     {% assign posts = site.posts | where: "i18n", page.i18n | sort: "lang" %}
     {% for post in posts %}
