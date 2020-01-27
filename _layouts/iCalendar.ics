@@ -2,7 +2,7 @@
 layout: none
 ---
 {%- include globals.liquid -%}
-{%- assign events = site.events | sort: "startDate" -%}
+{%- if site.events -%}{%- assign events = site.events | sort: "startDate" -%}{%- endif -%}
 BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:iCalendar Generator at {{ site.url }}
