@@ -1,0 +1,6 @@
+{%- assign price = item.price | append: '.00' | split: '.' -%}
+{%- assign major = price[0] -%}
+{%- assign minor = price[1] -%}
+{%- assign short = price[1] | size -%}
+{%- if 2 > short -%}{%- assign minor = minor | append: '0' -%}{%- endif -%}
+{{- major -}}.{{- minor -}}

@@ -82,6 +82,7 @@ exclude:
     - .gitmodules
     - .nojekyll
     - .gitignore
+    - .github
     - Gemfile
     - Gemfile.lock
     - README.md
