@@ -5,18 +5,20 @@
 #
 # ```yaml
 # menu_identifier:
-#   ISO_639_language_tag:
 #     - url: /path/to/link/to
-#       text: Display text of menu item 
+#       title: Display text of menu item 
+#       identifier: id-of-menu-item
 #       title_text: Tooltip text of menu link.
+#       lang: ISO_639_language_tag
+#       weight: 1
 # ```
 #
-# Common menu identifiers are:
+# Common menu names are:
 #
 # * `main`
 # * `sidebar`
 #
-# Each menu should have at least one language that matches the default
+# Each menu item should have a `lang` field that matches the default
 # language set in the site-wide `_config.yaml` file's `lang` property.
 # For example, if have set `lang: de` in your `_config.yaml` file, your
 # menus must have at least the `de` language configured here.
@@ -25,30 +27,40 @@
 # Main menu.
 main:
 
-  # English language for the United States region.
-  en_US:
-
     # List of links for the `en_US` language.
     - url: /
-      text: Home
+      title: Home
+      identifier: home
+      lang: en_US
     - url: /about/
-      text: About
+      title: About
+      identifier: about
       title_text: Learn more about us!
+      lang: en_US
     - url: /contact/
-      text: Contact
+      title: Contact
+      identifier: contact
+      lang: en_US
     - url: /blog/
-      text: Blog
-
-  # Spanish language.
-  es:
+      title: Blog
+      identifier: blog
+      lang: en_US
 
     # List of links for the `es` language.
     - url: /es/
-      text: Inicio
+      title: Inicio
+      identifier: inicio
+      lang: es
     - url: /es/acercadenosotros/
-      text: Acerca de Nosotros
+      title: Acerca de Nosotros
+      identifier: acerca-de-nosotros
       title_text: ¡Aprenda más acerca de nosotros!
+      lang: es
     - url: /es/contactenos/
-      text: Contáctenos
+      title: Contáctenos
+      identifier: contactenos
+      lang: es
     - url: /es/blog/
-      text: Blog
+      title: Blog
+      identifier: es-blog
+      lang: es

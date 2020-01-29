@@ -14,7 +14,7 @@ This folder contains [Jekyll data files](https://jekyllrb.com/docs/datafiles/), 
 * [`contact_info.yaml`](#contact-info) - Your contact information, such as you telephone number and physical address.
 * [`gallery.yaml`](#gallery) - Description of which images to display on your site's gallery, and in what order.
 * [`opening_hours.yaml`](#opening-hours) - Listing of your business's opening hours.
-* [`nav_menus.yaml`](#navigation-menus) - Description of which pages to link to from the navigation menus.
+* [`menus.yml`](#navigation-menus) - Description of which pages to link to from the navigation menus.
 
 In addition to these files, this folder also contains the following subfolders:
 
@@ -55,12 +55,17 @@ Your gallery images are represented as a single YAML list. Each item in the list
 
 ## Navigation menus
 
-[The `nav_menus.yaml` data file](nav_menus.yaml) defines the name, order, and contents of your site's navigation menus. Each menu has a name, such as `main` or `sidebar`. Each menu is a list of links that may also be an image. At a minimum, each menu item must include a `url` and a `text` field.
+[The `menus.yml` data file](menus.yml) defines the name, order, and contents of your site's navigation menus. Behind the scenes, it uses [Forestry's Jekyll Menus plugin](https://github.com/forestryio/jekyll-menus) if that plugin is available, but will also fallback to using plain [Liquid templates](https://jekyllrb.com/docs/liquid/) to render the menus if necessary. In either case, configuring a menu is done the same way.
+
+Each menu has a name, such as `main` or `sidebar`. Each menu is composed of a single list, where each item in the list describes a single menu item. At a minimum, each menu item must include a `url`, `title`, and `identifier` field. On multi-lingual sites, each menu item must also include a `lang` field.
 
 Optionally, menu items may also include the following fields:
 
 * `title_text` - The `title` attribute's text for the link.
 * `image` - The name of an image file in [your site's `static/images` folder](../static/images/). Omit this field to create a textual navigation menu item.
+* `weight` - Defines the order in which the menu items are shown in the menu, with `1` being the first, `2` being next, and so on.
+
+If your site's hosting environment supports the Jekyll Menus plugin, you can also make use of any of the [Jekyll Menu plugin variables](https://github.com/forestryio/jekyll-menus#variables) as well.
 
 ## Opening hours
 

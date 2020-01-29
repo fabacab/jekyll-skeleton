@@ -80,6 +80,8 @@ iCalendar:
 markdown: kramdown
 exclude:
     - .gitmodules
+    - .nojekyll
+    - .gitignore
     - Gemfile
     - Gemfile.lock
     - README.md
@@ -99,5 +101,9 @@ exclude:
 # Load whitelisted plugins.
 # See https://help.github.com/en/articles/configuring-jekyll-plugins
 plugins:
+    # GitHub Pages-compatible plugins.
     - jekyll-seo-tag
     - jekyll-feed
+
+    # Forestry integration plugins.
+    - jekyll-menus
