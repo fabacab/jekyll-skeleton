@@ -1,8 +1,7 @@
--
-  image: image1.jpeg
+---
+- image: image1.jpeg
   caption: 'A caption. Photo credit: <a href="https://www.instagram.com/example_user">Example User</a>'
   featured: true
--
-  image: flowers.png
+- image: flowers.png
   caption: This image links to an external site.
   link: https://example.com/

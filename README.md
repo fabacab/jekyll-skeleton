@@ -4,7 +4,7 @@ This folder, called the "web root" or sometimes "document root," contains the wh
 
 The software used to publish your Website is called [Jekyll](https://jekyllrb.com/). It is the program responsible for processing the files in this folder structure and transforming them into the HTML pages, RSS feeds, iCalendar feeds, and other machine-readable formats that your Web browser, news reader, calendaring application, and other client software downloads. Much of the [documentation provided by the Jekyll project](https://jekyllrb.com/docs/) is therefor very useful in understanding both the folder hierarchy contained herein and the contents of each file in these folders.
 
-The rest of this document offers a basic overview of these files, what they do, and how to edit them.
+The rest of this document, along with the other `README.md` files in various folders, offers a basic overview of these files, what they do, and how to edit them. These directions are written for those who feel comfortable manipulating the Web site by editing its Jekyll-formatted source files directly. For instructions relating to a more graphical environment, see the [`.forestry/`](.forestry/) folder and the `README.md` files located there.
 
 # Folder structure
 

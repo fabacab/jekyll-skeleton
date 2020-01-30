@@ -1,0 +1,49 @@
+# This file defines a GitHub Actions workflow that is triggered when
+# commits are pushed to the configured branch. It builds the Jekyll
+# site in a Docker container on GitHub's infrastructure, commits the
+# built code to the configured `gh_pages_branch` in this repository,
+# and then requests a new GitHub Pages build.
+#
+# This process makes it possible to use, e.g., custom Jekyll plugins
+# even if they are not whitelisted by GitHub Pages, since the plugins
+# are executed as part of the continuous deployment pipeline defined
+# here.
+#
+# For more information, see:
+#
+#     https://help.github.com/en/actions
+---
+name: Publish to GitHub Pages
+
+on:
+  push:
+    branches:
+      - forestry-source
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: EdricChan03/action-build-deploy-ghpages@v2.2.1
+      with:
+        # The `github.token` is generated automatically.
+        github_token: ${{ github.token }}
+
+        # You must create a GitHub Personal Access Token with at least
+        # the `public_repo` and `repo_deployment` scopes. To make this
+        # token, visit the following URL:
+        #
+        #     https://github.com/settings/tokens/new?scopes=public_repo,repo_deployment&description=Token%20for%20Deploy%20GitHub%20Pages%20GitHub%20Action
+        #
+        # Once created, you must save the value of that token in your
+        # repository's Secrets configuration. See
+        #
+        #    https://help.github.com/en/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets
+        gh_pages_token: ${{ secrets.GH_PAGES_TOKEN }}
+
+        # Set the git branch to push the built Jekyll static site to.
+        # This must be `master` for User or Organization repositories.
+        # See
+        # https://help.github.com/en/github/working-with-github-pages/about-github-pages#publishing-sources-for-github-pages-sites
+        #gh_pages_branch: master

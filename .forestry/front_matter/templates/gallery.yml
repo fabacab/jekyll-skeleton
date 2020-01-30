@@ -1,0 +1,55 @@
+---
+label: Gallery
+hide_body: true
+fields:
+- type: field_group_list
+  name: Gallery
+  label: Gallery
+  fields:
+  - name: title
+    type: text
+    config:
+      required: false
+    label: Title
+    description: Title of the image.
+  - type: file
+    name: image
+    label: Image file
+    description: Image file to display as the picture in the gallery.
+  - type: textarea
+    name: caption
+    label: Caption
+    config:
+      wysiwyg: true
+      schema:
+        format: html
+  - name: link
+    type: text
+    config:
+      required: false
+    label: Link
+    description: Where the image links to. (Leave blank to refrain from making the image a link.)
+  - name: link_title
+    type: text
+    config:
+      required: false
+    label: Link Title Text
+    description: The image link's title text, usually displayed as a tooltip when a visitor hovers their mouse cursor over the image. This field is ignored unless the Link field is also set.
+  - type: boolean
+    name: featured
+    label: Featured
+    description: Whether or not the image is to be featured prominently, such as on the site's front page.
+  - name: alt
+    type: text
+    config:
+      required: true
+    label: Alternative Text (accessibility)
+    description: Brief description of the image's visual content, to improve accessibility.
+  - name: object_position
+    type: text
+    config:
+      required: false
+    label: Object Position (CSS)
+    description: Used to tweak the cropped position of non-standard image dimensions. Valid values are the same as for the CSS `object-position` property.
+pages:
+- _data/gallery.yaml
