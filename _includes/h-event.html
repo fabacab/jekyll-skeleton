@@ -87,7 +87,7 @@ to be set on DIV elements, not ARTICLEs.
         </p>
         {% endif %}
 
-        {% if event.offers %}
+        {% if event.offers and site.time < event.endDate %}
         <p>Buy tickets:</p>
         <ul itemprop="offers" itemscope="itemscope" itemtype="https://schema.org/AggregateOffer">
         {% for offer in event.offers %}
@@ -96,6 +96,8 @@ to be set on DIV elements, not ARTICLEs.
         </li>
         {% endfor %}
         </ul>
+        {% else %}
+        <p>Tickets are no longer available for this event because the event has passed.</p>
         {% endif %}
 
     </section><!-- .offers -->
