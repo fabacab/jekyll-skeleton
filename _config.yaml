@@ -78,9 +78,10 @@ iCalendar:
 
 # Build settings.
 markdown: kramdown
+include:
+    - .nojekyll
 exclude:
     - .gitmodules
-    - .nojekyll
     - .gitignore
     - .github
     - Gemfile
