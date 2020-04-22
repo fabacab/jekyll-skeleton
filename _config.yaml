@@ -74,7 +74,7 @@ iCalendar:
     defaults:
         location: 123 Some Place
         status: CONFIRMED
-        image: event-placeholder-image.jpg
+        image: /static/images/event-placeholder-image.jpg
 
 # Build settings.
 markdown: kramdown
