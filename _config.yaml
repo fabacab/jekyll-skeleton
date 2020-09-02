@@ -29,6 +29,9 @@ social:
         - https://www.facebook.com/FacebookPageID
         - https://www.instagram.com/InstagramHandle
 
+# Location of this site in Onionland.
+#onion: YOUR_ONION_DOMAIN_HERE.onion
+
 # Blog settings.
 paginate: 5    # How many posts per HTML page.
 paginate_path: "/blog/page/:num/"

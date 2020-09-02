@@ -67,6 +67,18 @@ The default language for your Web site. Defaults to `en_US`.
 
 Path to your site's main logo image.
 
+## Onion settings
+
+If you also publish your Web site as a [Tor Onion service](https://community.torproject.org/onion-services/), you can set the `onion` site variable to inform the templates about this. For example:
+
+```yaml
+onion: p53lf57qovyuvwsc6xnrppyply3vtqm7l6pcobkmyqsiofyeznfu5uqd.onion
+```
+
+(Replace the actual Onion domain with your own, of course.)
+
+This option implements the [Tor Project's `Onion-Location` specification](https://community.torproject.org/onion-services/advanced/onion-location/#using-an-html-%3Cmeta%3E-attribute).
+
 ## Blog settings
 
 These settings affect your blog post listing pages and the blog posts themselves.
