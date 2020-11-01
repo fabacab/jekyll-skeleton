@@ -78,6 +78,7 @@ iCalendar:
         location: 123 Some Place
         status: CONFIRMED
         image: /static/images/event-placeholder-image.jpg
+        refresh_interval: P1D
 
 # Build settings.
 markdown: kramdown

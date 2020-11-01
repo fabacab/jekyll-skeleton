@@ -11,6 +11,7 @@ PRODID:iCalendar Generator at {{ site.url }}
 NAME;LANGUAGE={{ l }}:{% capture title %}{% include site-title.txt lang=l %}{% endcapture%}{{ title | default: site.title }} - {% include gettext.liquid key="all_events" lang=l %}
 DESCRIPTION;LANGUAGE={{ l }}:{% capture desc %}{% include gettext.liquid key="site_description" lang=l %}{% endcapture %}{{ desc | default: site.description }}
 {% endfor -%}
+{% if site.iCalendar.defaults.refresh_interval %}REFRESH-INTERVAL;VALUE=DURATION:{{ site.iCalendar.defaults.refresh_interval }}{% endif %}
 {%- for event in events -%}
 {%- assign thirty_one_days = 60 | times: 60 | times: 24 | times: 31 -%}
 {%- assign thirty_one_days_ago = site.time | date: "%s" | plus: 0 | minus: thirty_one_days -%}
